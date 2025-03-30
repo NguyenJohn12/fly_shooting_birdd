@@ -18,4 +18,13 @@ public class Bullet : MonoBehaviour
     {
         PoolingManager.Despawn(gameObject);
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Block"))
+        {
+            Debug.Log("Bullet Collide with Block");
+            Despawn();
+        }
+    }
 }
